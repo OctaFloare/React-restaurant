@@ -1,4 +1,5 @@
 import logo from "../logo.svg";
+import {Link} from "react-router-dom";
 
 export const Home = () =>
     <div className="App">
@@ -7,8 +8,8 @@ export const Home = () =>
             <p>
                 Welcome to React Restaurant
             </p>
-            <a className="App-link" href="http://localhost:3000/menu">
+            <Link className="App-link" to="/menu">
                 Go to menu
-            </a>
+            </Link>
         </header>
     </div>
