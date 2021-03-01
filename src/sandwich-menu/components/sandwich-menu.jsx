@@ -2,7 +2,6 @@ import MUIDataTable from 'mui-datatables'
 import React, {useEffect, useState} from "react";
 import {Box, Grid, Toolbar, Badge, IconButton} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import 'bootstrap/dist/css/bootstrap-grid.css.map'
 import {useOnAddCart} from "../containers/hooks/use-on-add-cart";
 import {Title} from "../containers/details/title"
 import {ShowDetails} from "../containers/details/body";
