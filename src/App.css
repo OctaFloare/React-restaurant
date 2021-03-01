@@ -26,8 +26,38 @@
 
 .App-link {
   color: #61dafb;
+  text-align: center;
+  justify-content: center;
 }
-
+.FoodTypeLink{
+  color: black;
+  text-align: center;
+}
+.fullPage{
+  padding: 120px 0;
+  position: relative;
+  min-height: 65vh;
+  display:flex!important;
+  margin:0;
+  border:0;
+  color:#FFF;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+}
+.CardImage{
+  height: 180px;
+  marginLeft: 113px;
+  paddingLeft: 56.25%;
+  paddingTop: 56.25%;
+  marginTop: 10px;
+  width: 10px;
+}
+.Images{
+  width: 150px;
+  height: 150px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
