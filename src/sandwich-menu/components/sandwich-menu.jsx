@@ -35,9 +35,9 @@ export const Menu = () => {
         expandableRows: true,
         customToolbarSelect: () => 
             <Toolbar>
-                <div>Adauga in cos</div>
                 <Box mr={5}>
                     <IconButton onClick={onClick}>
+                        <div>Adauga in cos</div>
                         <Badge badgeContent={selected.length} color='secondary'>
                             <AddShoppingCartIcon />
                         </Badge>
