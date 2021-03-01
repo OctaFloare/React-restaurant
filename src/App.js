@@ -9,8 +9,9 @@ import {store} from "./core/store/store"
 const App = () =>
     <Provider store={store}>
         <Router>
-        <NavBar />
-        <Routes />
+            <NavBar />
+            <Routes />
         </Router>
     </Provider>
+
 export default App;
