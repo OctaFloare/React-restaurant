@@ -4,12 +4,15 @@ import {useSandwichContext} from "./use-sandwich-context";
 
 export const useOnAddCart = (selector) => {
     const {selected, setSelected} = useSandwichContext()
-    const dispatch = useDispatch()
     const data = useSelector(selector)
-    const shoppingCartData = selected.map(selectIndex => data[selectIndex])
+    const dispatch = useDispatch()
+    const itemsToAdd = {
+        data: data,
+        selectedAdd: selected
+    }
     
     return () => {
-        dispatch(addItems(shoppingCartData))
+        dispatch(addItems(itemsToAdd))
         setSelected([])
     }
 }

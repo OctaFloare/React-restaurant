@@ -6,7 +6,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 export const useSetOptions = (selector) =>{
     const {selected,setSelected} = useShoppingCartContext();
-    const onClick = useDeleteSelectedRows(selected, selector, setSelected);
+    const onClick = useDeleteSelectedRows(selector);
     const options = {
         filterType: 'dropdown',
         viewColumns: false,

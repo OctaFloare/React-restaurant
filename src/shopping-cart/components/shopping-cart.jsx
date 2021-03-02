@@ -9,9 +9,9 @@ import {useSetOptions} from "../containers/options";
 
 export const ShoppingCartComponent = () => {
     const shoppingCartData = useSelector(selector)
-
     const totalPrice = useSetTotalPrice(shoppingCartData);
     const options = useSetOptions(selector);
+    
     return <Box m={5}>
             <MUIDataTable 
                 data={shoppingCartData}
