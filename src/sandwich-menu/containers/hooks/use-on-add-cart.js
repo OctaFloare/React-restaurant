@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {addItemToShoppingCart} from "../../../shopping-cart/actions"
+import {addItems} from "../../../shopping-cart/actions"
 
 export const useOnAddCart = (selected, setSelected, selector) => {
     const dispatch = useDispatch()
@@ -7,7 +7,7 @@ export const useOnAddCart = (selected, setSelected, selector) => {
     const shoppingCartData = selected.map(selectIndex => data[selectIndex])
     
     return () => {
-        dispatch(addItemToShoppingCart(shoppingCartData))
+        dispatch(addItems(shoppingCartData))
         setSelected([])
     }
 }

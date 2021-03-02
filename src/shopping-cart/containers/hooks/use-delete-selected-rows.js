@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {removeItemFromShoppingCart} from "../../actions";
+import {removeItems} from "../../actions";
 
 export const useDeleteSelectedRows = (selected, selector, setSelected) =>
 {
@@ -8,7 +8,7 @@ export const useDeleteSelectedRows = (selected, selector, setSelected) =>
     const itemsToDelete = selected.map(item => shoppingCartData[item])
     
     return () => {
-        dispatch(removeItemFromShoppingCart(itemsToDelete))
+        dispatch(removeItems(itemsToDelete))
         setSelected([])
     }
 }
