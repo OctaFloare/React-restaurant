@@ -64,6 +64,5 @@ export const Menu = () => {
 }
 
 const selector = ({ sandwichMenuReducer }) => {
-    console.log(sandwichMenuReducer)
     return sandwichMenuReducer.items;
 }
