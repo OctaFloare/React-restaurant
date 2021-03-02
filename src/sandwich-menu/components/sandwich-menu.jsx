@@ -1,54 +1,13 @@
 import MUIDataTable from 'mui-datatables'
-import React, {useEffect} from "react";
-import {Box, Grid, Toolbar, Badge, IconButton} from "@material-ui/core";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import {useOnAddCart} from "../containers/hooks/use-on-add-cart";
-import {Title} from "../containers/details/title"
-import {ShowDetails} from "../containers/details/body";
+import React from "react";
+import {Box, Grid} from "@material-ui/core";
 import {columns} from "../containers/table-columns";
-import {useDispatch, useSelector} from "react-redux";
-import {getAllSandwiches} from "../actions";
-import {useSandwichContext} from "../containers/hooks/use-sandwich-context";
+import {useSelector} from "react-redux";
+import {useSetOptions} from "../containers/options";
 
 export const Menu = () => {
-
-    const {selected, setSelected} = useSandwichContext();
     const data = useSelector(selector)
-    const onClick = useOnAddCart(selector);
-    
-    const options = {
-        filterType: 'dropdown',
-        viewColumns:false,
-        filter: false,
-        print:false,
-        rowsSelected: selected,
-        download:false,
-        textLabels:{
-            selectedRows : {
-                text: "produs(e) selectat(e)"
-            }
-        },
-        selectableRowsOnClick: true,
-        selectableRowsHeader: false,
-        onRowSelectionChange: (currentRowsSelected, allRowsSelected, rowsSelected) => setSelected(rowsSelected),
-        expandableRows: true,
-        customToolbarSelect: () => 
-            <Toolbar>
-                <Box mr={5}>
-                    <IconButton onClick={onClick}>
-                        <div>Adauga in cos</div>
-                        <Badge badgeContent={selected.length} color='secondary'>
-                            <AddShoppingCartIcon />
-                        </Badge>
-                    </IconButton>
-                </Box>
-            </Toolbar>,
-        renderExpandableRow: (rowData, rowMeta) => <>
-            <Title />
-            <ShowDetails value={data[rowMeta.dataIndex].ingredients}/>
-        </>,
-        
-    };
+    const options = useSetOptions(data, selector)
     
     return <Box mt={5} mr={2}>
         <Grid container direction='row' justify='center' spacing={2}>   
