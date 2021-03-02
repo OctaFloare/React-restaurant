@@ -3,7 +3,7 @@ import {Home} from "../../home/home";
 import {FoodMenu} from "../../menu/containers";
 import history from '.././history';
 import {SandwichMenu} from "../../sandwich-menu/containers";
-import {ShoppingCart} from "../../shopping-cart/components/shopping-cart";
+import {ShoppingCart} from "../../shopping-cart/containers";
 
 export const Routes = () =>
     <Router history={history}>
