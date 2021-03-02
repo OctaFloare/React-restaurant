@@ -1,5 +1,5 @@
 import MUIDataTable from 'mui-datatables'
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Box, Grid, Toolbar, Badge, IconButton} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import {useOnAddCart} from "../containers/hooks/use-on-add-cart";
@@ -8,14 +8,13 @@ import {ShowDetails} from "../containers/details/body";
 import {columns} from "../containers/table-columns";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllSandwiches} from "../actions";
+import {useSandwichContext} from "../containers/hooks/use-sandwich-context";
 
 export const Menu = () => {
 
-    const [selected, setSelected] = useState([]);
-    const dispatch = useDispatch()
-    useEffect(() => dispatch(getAllSandwiches()),[])
+    const {selected, setSelected} = useSandwichContext();
     const data = useSelector(selector)
-    const onClick = useOnAddCart(selected,setSelected, selector);
+    const onClick = useOnAddCart(selector);
     
     const options = {
         filterType: 'dropdown',

@@ -1,3 +1,6 @@
+import {useState} from "react";
+
 export const useDefaultSandwichMenu = () => {
-    return []
+    const [selected, setSelected] = useState([])
+    return {selected, setSelected}
 }
