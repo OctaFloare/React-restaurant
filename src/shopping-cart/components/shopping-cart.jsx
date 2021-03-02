@@ -56,6 +56,4 @@ export const ShoppingCart = () => {
         </Box>
 }
 
-const selector = ({ shoppingCartReducer }) => {
-    return shoppingCartReducer.items;
-}
+const selector = ({ shoppingCartReducer }) => shoppingCartReducer.items;

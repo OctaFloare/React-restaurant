@@ -63,6 +63,4 @@ export const Menu = () => {
     </Box>
 }
 
-const selector = ({ sandwichMenuReducer }) => {
-    return sandwichMenuReducer.items;
-}
+const selector = ({ sandwichMenuReducer }) => sandwichMenuReducer.items;
