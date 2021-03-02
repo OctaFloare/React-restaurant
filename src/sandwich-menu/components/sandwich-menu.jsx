@@ -52,14 +52,14 @@ export const Menu = () => {
     };
     
     return <Box mt={5} mr={2}>
-    <Grid container direction='row' justify='center' spacing={2}>
-    <MUIDataTable
-        columns={columns}
-        data={data}
-        options={options}
-        title={'Sandwiches'}
-    />
-    </Grid>
+        <Grid container direction='row' justify='center' spacing={2}>   
+            <MUIDataTable
+            columns={columns}
+            data={data}
+            options={options}
+            title={'Sandwiches'}
+            />
+        </Grid>
     </Box>
 }
 
