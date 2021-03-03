@@ -8,9 +8,9 @@ export const columns=[
         options: {
             filter: false,
             sort: false,
-            customBodyRender: (rowData, currentTableData) =>
+            customBodyRender: (rowData) =>
                 <Grid item xs={12} sm={12} md={10} lg={10}>
-                    <img className={'Images'} src={rowData} alt={currentTableData[4]} />
+                    <img className={'Images'} src={rowData} />
                 </Grid>
         }
     },
