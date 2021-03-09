@@ -1,4 +1,4 @@
-import {Grid, Hidden} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import React from "react";
 
 export const useSetColumns = (shoppingCartData) => {
@@ -29,11 +29,10 @@ export const useSetColumns = (shoppingCartData) => {
             options: {
                 filter: true,
                 sort: true,
-                customBodyRender: rowData => <Hidden smDown='true'>
+                customBodyRender: rowData =>
                     <Grid item xs={12} sm={12} md={10} lg={10}>
                         {rowData}
-                    </Grid>
-                </Hidden>,
+                    </Grid>,
             },
         },
         {
