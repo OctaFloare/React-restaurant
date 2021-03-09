@@ -7,7 +7,7 @@ export const useOnAddCart = (selector) => {
     const data = useSelector(selector)
     const dispatch = useDispatch()
     const itemsToAdd = {
-        data: data,
+        data: data.data,
         selectedAdd: selected
     }
     
