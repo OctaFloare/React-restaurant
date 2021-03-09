@@ -1,24 +1,15 @@
-import MUIDataTable from 'mui-datatables'
 import React from "react";
-import {Box, Grid} from "@material-ui/core";
-import {columns} from "../containers/table-columns";
 import {useSelector} from "react-redux";
-import {useSetOptions} from "../containers/options";
+import {DataTable} from "../containers/mui-data-table/data-table";
+import {Error} from '../../core/site-error/error'
+import {Box} from "@material-ui/core";
 
 export const Menu = () => {
     const data = useSelector(selector)
-    const options = useSetOptions(data, selector)
     
-    return <Box mt={5} mr={2}>
-        <Grid container direction='row' justify='center' spacing={2}>   
-            <MUIDataTable
-            columns={columns}
-            data={data}
-            options={options}
-            title={'Sandwiches'}
-            />
-        </Grid>
+    return <Box>
+        {data.status === true ? <DataTable data={data.data} selector={selector} /> : <Error />}
     </Box>
 }
 
-const selector = ({ sandwichMenuReducer }) => sandwichMenuReducer.items;
+const selector =  ({ sandwichMenuReducer }) => sandwichMenuReducer.items;
