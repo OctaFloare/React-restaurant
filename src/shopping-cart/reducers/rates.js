@@ -1,21 +1,36 @@
+import * as yup from "yup"
+import {Record} from "immutable";
+
 const initialState = {
     rate: 0,
     status: 'false'
 }
 
-export const ratesReducer = (state = initialState, action) => {
+const SchemaState = yup.object().noUnknown()
+    .shape({
+        rate: yup.number().default(0),
+        status: yup.string().default('false')
+    })
+
+const makeState = data =>{
+    const casted = new Record(SchemaState.cast(data))().toJS()
+    
+    return {...SchemaState.default(),...casted}
+}
+
+export const ratesReducer = (state = makeState(), action) => {
     switch(action.type){
         case 'GET_RATE_API_ATTEMPT':
             
-            return {...state}
+            return makeState({...state})
         case 'GET_RATE_API_SUCCESS':
             
-            return {...state, rate: action.payload.data.value, status: action.payload.data.success}
+            return makeState({...state, rate: action.payload.data.value, status: action.payload.data.success})
         case 'GET_RATE_API_FAILURE':
             
-            return {...state, status: 'false'}
+            return makeState({...state, status: 'false'})
             
         default:
-            return {...state}
+            return makeState({...state})
     }
 }
