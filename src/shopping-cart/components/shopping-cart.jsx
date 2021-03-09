@@ -9,10 +9,10 @@ import {useSetOptions} from "../containers/options";
 
 const _ = require('lodash');
 export const ShoppingCartComponent = () => {
-    const shoppingCartData = useSelector(selector)
+    const {shoppingCartData, rate} = useSelector(selector)
     const totalPrice = useSetTotalPrice(shoppingCartData);
     const options = useSetOptions(selector);
-    const columns = useSetColumns(shoppingCartData)
+    const columns = useSetColumns(shoppingCartData);
     
     return <Box m={5}>
             <MUIDataTable 
@@ -21,8 +21,12 @@ export const ShoppingCartComponent = () => {
                 options={options}
                 title={'ShoppingCart'}
                 />
-        <PaymentDetails totalPrice={totalPrice} />
-        </Box>
+        <PaymentDetails totalPrice={totalPrice} rate={rate}/>
+    </Box>
 }
 
-const selector = ({ shoppingCartReducer }) => shoppingCartReducer.items;
+const selector = ({ shoppingCartReducer, ratesReducer}) => ({
+    shoppingCartData: shoppingCartReducer.items,
+    rate: ratesReducer.rate,
+})
+
