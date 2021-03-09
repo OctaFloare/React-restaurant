@@ -1,11 +1,6 @@
 import * as yup from "yup"
 import {Record} from "immutable";
 
-const initialState = {
-    rate: 0,
-    status: 'false'
-}
-
 const SchemaState = yup.object().noUnknown()
     .shape({
         rate: yup.number().default(0),
