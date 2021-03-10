@@ -1,0 +1,3 @@
+export const GET_ALL_SANDWICHES_API_ATTEMPT = 'GET_ALL_SANDWICHES_API_ATTEMPT'
+
+export const getItemsApiAttempt = () => ({type: GET_ALL_SANDWICHES_API_ATTEMPT})
