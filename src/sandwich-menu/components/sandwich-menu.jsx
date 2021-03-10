@@ -6,7 +6,7 @@ import {Box} from "@material-ui/core";
 
 export const Menu = () => {
     const data = useSelector(selector)
-    console.log(data, "this is data")
+    
     return <Box>
         {data.status === 'true' ? <DataTable data={data.data} selector={selector} /> : <Error />}
     </Box>
